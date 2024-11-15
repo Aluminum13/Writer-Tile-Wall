@@ -13,4 +13,4 @@
 
 代码本身很简单，会被注意事项影响到的人应当可以自行解决。如果实在不能解决请通过issue提问。如果有使用者愿意开发更安全保险的策略欢迎提交，我是懒得继续开发了（）
 
-在使用过程中遇到任何问题均可通过issue提问，如果可能请附上你的log.txt中和错误相关的部分（如果有）。如果你不是从Github获得的代码，可以通过访问https://github.com/Aluminum13/Writer-Tile-Wall来提交issue。后续会考虑clone到gitee上以方便墙内访问。
+在使用过程中遇到任何问题均可通过issue提问，如果可能请附上你的log.txt中和错误相关的部分（如果有）。如果你不是从Github获得的代码，可以通过访问https://github.com/Aluminum13/Writer-Tile-Wall（如果无法翻墙可以访问https://gitee.com/aluminum13/Writer-Tile-Wall，但我可能会更慢看到）来提交issue。
