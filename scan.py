@@ -79,7 +79,7 @@ def schedule_task():
 
 def get_directory():
     # 设置路径文件
-    config_file = 'path_config.json'
+    config_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'path_config.json')
 
     # 如果路径配置文件已存在，读取配置中的路径
     if os.path.exists(config_file):
