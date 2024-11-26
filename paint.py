@@ -3,7 +3,17 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import calendar
+import os
 
+import scan
+
+
+# 打印之前先扫描一次
+directory = scan.get_directory()
+total_length = scan.scan_directory(directory)
+print(f"总字数: {total_length}")
+file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data.dat")
+scan.record_data(file_path, total_length)
 
 periods = 365
 
@@ -49,7 +59,7 @@ month_ticks = month_changes.values
 
 # 绘图
 plt.figure(figsize=(15, 2.22))
-sns.heatmap(heatmap_data, cmap="Greens", linewidths=0.1, linecolor="gray", cbar=False, yticklabels=False)
+sns.heatmap(heatmap_data, cmap="Greens", linewidths=0.1, linecolor="gray", cbar=False, yticklabels=False, vmin=0)
 #sns.heatmap(heatmap_data, cmap="Greens", linewidths=0.1, linecolor="gray", cbar=False, yticklabels=False, vmax=3500)
 
 # 在 NaN 格子上画斜线

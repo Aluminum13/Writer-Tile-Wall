@@ -35,17 +35,19 @@ def scan_directory(directory):
     total_length = 0
     for root, dirs, files in os.walk(directory):
         for filename in files:
-            file_path = os.path.join(directory, filename)
+            file_path = os.path.join(root, filename)
             if os.path.isfile(file_path):
                 if filename.endswith('.txt'):
-                    print(f"已统计文件：{filename}")
-                    total_length += count_txt_length(file_path)
-                elif filename.endswith('.docx') or filename.endswith('.doc') and not filename.startswith('~'):
+                    file_length = count_txt_length(file_path)
+                    print(f"已统计文件：{file_path}，字数{file_length}")
+                    total_length += file_length
+                elif (filename.endswith('.docx') or filename.endswith('.doc')) and not filename.startswith('~'):
                     try:
-                        print(f"已统计文件：{filename}")
-                        total_length += count_word_length(file_path)
+                        file_length = count_word_length(file_path)
+                        print(f"已统计文件：{file_path}，字数{file_length}")
+                        total_length += file_length
                     except Exception as e:
-                        print(f"统计文件：{filename}时发生错误：{e}")
+                        print(f"统计文件：{file_path}时发生错误：{e}")
     return total_length
 
 
