@@ -49,7 +49,7 @@ def scan_directory(directory):
     return total_length
 
 
-# 记录数据到指定文件，格式：YYYY-MM-DD HH:MM:SS character_length
+# 记录数据到指定文件，格式：YYYY-MM-DD HH:MM:SS
 def record_data(file_path, character_length):
     # 获取当前日期，格式为 YYYY-MM-DD HH:MM:SS
     current_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
