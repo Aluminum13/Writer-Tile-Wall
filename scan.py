@@ -11,11 +11,11 @@ import sys
 
 # 检查是否支持 reconfigure 方法
 if hasattr(sys.stdout, "reconfigure"):
-    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stdout.reconfigure(encoding="GBK")
 else:
     # 对于更老的 Python 版本，使用 io.TextIOWrapper
     import io
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='GBK')
 
 
 # 统计文本文件的字符数
