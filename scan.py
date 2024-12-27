@@ -6,6 +6,11 @@ from tkinter import filedialog
 import tkinter as tk
 from datetime import datetime
 from docx import Document
+import sys
+import io
+
+# 修改标准输出为 UTF-8 编码
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 
 # 统计文本文件的字符数
