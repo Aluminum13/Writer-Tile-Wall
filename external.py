@@ -1,5 +1,11 @@
 import subprocess
 import sys
+import io
+
+
+# 修改标准输出为 UTF-8 编码
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
 
 # 定义需要安装的库
 required_libraries = [
