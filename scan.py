@@ -7,10 +7,15 @@ import tkinter as tk
 from datetime import datetime
 from docx import Document
 import sys
-import io
 
-# 修改标准输出为 UTF-8 编码
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
+# 检查是否支持 reconfigure 方法
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+else:
+    # 对于更老的 Python 版本，使用 io.TextIOWrapper
+    import io
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 
 # 统计文本文件的字符数

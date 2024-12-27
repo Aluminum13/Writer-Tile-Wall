@@ -5,13 +5,17 @@ import seaborn as sns
 import calendar
 import os
 import sys
-import io
 
 import scan
 
 
-# 修改标准输出为 UTF-8 编码
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+# 检查是否支持 reconfigure 方法
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+else:
+    # 对于更老的 Python 版本，使用 io.TextIOWrapper
+    import io
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 
 # 打印之前先扫描一次
@@ -65,7 +69,7 @@ month_ticks = month_changes.values
 
 # 绘图
 plt.figure(figsize=(15, 2.22))
-sns.heatmap(heatmap_data, cmap="Greens", linewidths=0.1, linecolor="gray", cbar=False, yticklabels=False, vmin=0)
+sns.heatmap(heatmap_data, cmap="Greens", linewidths=0.1, linecolor="gray", cbar=False, yticklabels=False, vmin=0, vmax=3500)
 #sns.heatmap(heatmap_data, cmap="Greens", linewidths=0.1, linecolor="gray", cbar=False, yticklabels=False, vmax=3500)
 
 # 在 NaN 格子上画斜线
