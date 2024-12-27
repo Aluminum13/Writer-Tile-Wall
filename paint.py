@@ -4,8 +4,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import calendar
 import os
+import sys
+import io
 
 import scan
+
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 
 # 打印之前先扫描一次
